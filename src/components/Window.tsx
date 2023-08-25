@@ -13,10 +13,10 @@ export default function Window(props: Props) {
       id="window"
       ref={props.headerReference}>
       <header
-        className=" flex flex-row items-end justify-end gap-1 bg-zinc-400 p-1 text-lg"
+        className=" flex flex-row items-center justify-end gap-1 bg-zinc-400 p-1 text-lg"
         id="windowHeader"
         onMouseDown={props.dragOnMouseDown}>
-        <p className="mr-auto">{props.header}</p>
+        <p className="mb-0 mr-auto mt-0 p-0 text-lg leading-none">{props.header}</p>
         <Button icon="?" />
         <Button icon="x" />
       </header>
