@@ -1,18 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Window from '../components/Window.jsx'
 import DraggableComponent from '../components/DraggableComponent.jsx'
 import cubelogo from '../videos/cubelogo.mp4';
+import './crt.css'
 ---
 
 <Layout title="NIGHTMODE">
 	<main class="page">
+		<div class="crt"></div>
 		<video id='background-video' autoplay loop muted>
 			<source src={cubelogo} type='video/mp4' />
 		</video>
 		<section class="screen">
-			<!-- <Window client:only/> -->
-			<!-- <DraggableComponent client:only/> -->
+			<DraggableComponent client:only/>
 		</section>
 	</main>
 </Layout>
@@ -40,15 +40,13 @@ import cubelogo from '../videos/cubelogo.mp4';
   	background-position: center; */
 	}
 
-	#background-video{
-
+	#background-video {
 	height: 50%;
 	width: 50%;
 	float: left;
 	padding: none;
 	margin: auto auto;
 	position: fixed; /* optional depending on what you want to do in your app */
-
-
 	}
+	
 </style>

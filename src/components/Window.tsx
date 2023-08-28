@@ -20,7 +20,7 @@ export default function Window(props: Props) {
         <Button icon="?" />
         <Button icon="x" />
       </header>
-      <main className="flex-grow bg-zinc-950">
+      <main className="flex-grow bg-black">
         <div className=" h-[500px] w-[500px]">CONTENT</div>
       </main>
     </div>
