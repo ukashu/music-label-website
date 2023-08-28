@@ -1,14 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Window from '../components/Window.tsx'
-import DraggableComponent from '../components/DraggableComponent.tsx'
+import Window from '../components/Window.jsx'
+import DraggableComponent from '../components/DraggableComponent.jsx'
+import cubelogo from '../videos/cubelogo.mp4';
 ---
 
 <Layout title="NIGHTMODE">
 	<main class="page">
+		<video id='background-video' autoplay loop muted>
+			<source src={cubelogo} type='video/mp4' />
+		</video>
 		<section class="screen">
 			<!-- <Window client:only/> -->
-			<DraggableComponent client:only/>
+			<!-- <DraggableComponent client:only/> -->
 		</section>
 	</main>
 </Layout>
@@ -22,13 +26,29 @@ import DraggableComponent from '../components/DraggableComponent.tsx'
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	.screen {
 		height:100vh;
 		width: 100vw;
-		background-image: url(../images/nightmode.jpg);
+		background: transparent;
+		/* background-image: url(../images/nightmode.jpg);
 		background-repeat: no-repeat;
 		background-attachment: fixed;
-  	background-position: center;
+  	background-position: center; */
+	}
+
+	#background-video{
+
+	height: 50%;
+	width: 50%;
+	float: left;
+	padding: none;
+	margin: auto auto;
+	position: fixed; /* optional depending on what you want to do in your app */
+
+
 	}
 </style>
