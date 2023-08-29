@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import DraggableComponent from '../components/DraggableComponent.jsx'
+import Desktop from './Desktop';
 import cubelogo from '../videos/cubelogo.mp4';
 import './crt.css'
 ---
@@ -12,7 +12,7 @@ import './crt.css'
 			<source src={cubelogo} type='video/mp4' />
 		</video>
 		<section class="screen">
-			<DraggableComponent client:only/>
+			<Desktop client:only/>
 		</section>
 	</main>
 </Layout>
