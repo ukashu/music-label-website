@@ -1,6 +1,6 @@
 import { useCallback } from "react"
 import { useDraggable } from "../hooks/useDraggable.js"
-import Window from "./Window.js"
+import WindowDark from "./WindowDark.js"
 
 export default function DraggableComponent() {
   // it's nice to have a way to at least prevent element from
@@ -16,7 +16,7 @@ export default function DraggableComponent() {
     onDrag: handleDrag
   })
 
-  return <Window headerReference={ref} dragOnMouseDown={handleMouseDown} header="Artists" />
+  return <WindowDark headerReference={ref} dragOnMouseDown={handleMouseDown} header="Artists" />
 }
 
 // please, don't `export default`! it messes up autocompletion,
