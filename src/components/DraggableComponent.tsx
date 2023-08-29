@@ -16,7 +16,7 @@ export default function DraggableComponent() {
     onDrag: handleDrag
   })
 
-  return <WindowDark headerReference={ref} dragOnMouseDown={handleMouseDown} header="Artists" />
+  return <WindowDark headerReference={ref} dragOnMouseDown={handleMouseDown} header="Merch" />
 }
 
 // please, don't `export default`! it messes up autocompletion,
