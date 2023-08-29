@@ -27,7 +27,7 @@ export default function WindowDark(props: Props) {
             <video autoPlay loop muted className=" min-h-[100%] overflow-hidden">
               <source src={shirtvid} type="video/mp4" />
             </video>
-            <button className=" flex-grow-0 text-center text-base font-bold">{"<->"}</button>
+            <p className=" flex-grow-0 text-center text-base font-bold">{"<->"}</p>
           </div>
           <div className=" flex w-1/2 flex-col px-20 text-sm">
             <p className=" text-center text-base font-bold">Unisex Tee</p>
