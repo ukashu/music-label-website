@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import '@fontsource/vt323';
 ---
 
 <!DOCTYPE html>
@@ -28,10 +29,13 @@ const { title } = Astro.props;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
 	}
 	html {
-		font-family: system-ui, sans-serif;
+		font-family: 'VT323', sans-serif;
 		background: #000000;
 		background-size: 224px;
 		overflow: hidden;
+	}
+	body {
+  	font-family: 'VT323', sans-serif;
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,

@@ -14,10 +14,10 @@ export default function WindowDark(props: Props) {
       id="window"
       ref={props.headerReference}>
       <header
-        className="z-10 flex flex-row items-center justify-end gap-1 border-b-2 border-b-zinc-200 bg-black p-1 text-lg"
+        className="z-10 flex flex-row items-center justify-end gap-1 border-b-2 border-b-zinc-200 bg-black p-1 text-xl"
         id="windowHeader"
         onMouseDown={props.dragOnMouseDown}>
-        <p className="mb-0 mr-auto mt-0 p-0 text-lg leading-none">{props.header}</p>
+        <p className="mb-0 mr-auto mt-0 p-0 text-2xl leading-none">{props.header}</p>
         <ButtonDark icon="?" />
         <ButtonDark icon="x" />
       </header>
@@ -27,10 +27,10 @@ export default function WindowDark(props: Props) {
             <video autoPlay loop muted className=" min-h-[100%] overflow-hidden">
               <source src={shirtvid} type="video/mp4" />
             </video>
-            <p className=" flex-grow-0 text-center text-base font-bold">{"<->"}</p>
+            <p className=" flex-grow-0 text-center text-xl font-bold">{"<->"}</p>
           </div>
-          <div className=" flex w-1/2 flex-col px-20 text-sm">
-            <p className=" text-center text-base font-bold">Unisex Tee</p>
+          <div className=" flex w-1/2 flex-col px-20 text-xl">
+            <p className=" text-center text-2xl font-bold">Unisex Tee</p>
             <p>100% authentic nightmode merchendise</p>
             <ul style={{ listStyle: "square" }}>
               <li>Adult Unisex 100% Cotton T-Shirt</li>

@@ -43,10 +43,10 @@ export default function Desktop() {
         <Icon icon={albumsicon} name="Artists" />
         <Icon icon={shirticon} name="Merch" />
       </div>
-      <div id="datetime" className=" absolute right-20 top-20">
+      <div id="datetime" className=" absolute right-20 top-20 text-2xl">
         <p>{date}</p>
       </div>
-      <footer className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center text-sm text-zinc-500 blur-xxs">
+      <footer className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center text-lg text-zinc-500 blur-xxs">
         ukashu 2023
       </footer>
     </>
