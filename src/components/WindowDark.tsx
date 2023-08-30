@@ -7,6 +7,7 @@ type Props = {
   headerReference: React.RefObject<HTMLDivElement>
   dragOnMouseDown: (e: React.MouseEvent<HTMLElement, MouseEvent> & { target: HTMLElement }) => void
   header: string
+  closeFunction?: () => void
 }
 
 export default function WindowDark(props: Props) {
@@ -21,7 +22,7 @@ export default function WindowDark(props: Props) {
 
   return (
     <div
-      className="absolute bottom-0 left-0 right-0 top-0 z-0 m-auto flex h-max w-max flex-col border-b-2 border-l-4 border-r-2 border-t-4 border-b-zinc-500 border-l-zinc-200 border-r-zinc-500 border-t-zinc-200 blur-xxs"
+      className="absolute bottom-0 left-0 right-0 top-0 z-20 m-auto flex h-max w-max flex-col border-b-2 border-l-4 border-r-2 border-t-4 border-b-zinc-500 border-l-zinc-200 border-r-zinc-500 border-t-zinc-200 blur-xxs"
       id="window"
       ref={props.headerReference}>
       <header
@@ -30,7 +31,7 @@ export default function WindowDark(props: Props) {
         onMouseDown={props.dragOnMouseDown}>
         <p className="mb-0 mr-auto mt-0 p-0 text-2xl leading-none">{props.header}</p>
         <ButtonDark icon="?" />
-        <ButtonDark icon="x" />
+        <ButtonDark icon="x" closeFunction={props.closeFunction} />
       </header>
       <main className="flex-grow bg-black">
         <div className=" my-20 flex w-[1000px] items-center overflow-hidden">

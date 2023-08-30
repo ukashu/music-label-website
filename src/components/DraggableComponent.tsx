@@ -2,7 +2,11 @@ import { useCallback } from "react"
 import { useDraggable } from "../hooks/useDraggable.js"
 import WindowDark from "./WindowDark.js"
 
-export default function DraggableComponent() {
+type Props = {
+  closeFunction: () => void
+}
+
+export default function DraggableComponent(props: Props) {
   // it's nice to have a way to at least prevent element from
   // getting dragged out of the page
   type position = {
@@ -16,7 +20,14 @@ export default function DraggableComponent() {
     onDrag: handleDrag
   })
 
-  return <WindowDark headerReference={ref} dragOnMouseDown={handleMouseDown} header="Merch" />
+  return (
+    <WindowDark
+      headerReference={ref}
+      dragOnMouseDown={handleMouseDown}
+      closeFunction={props.closeFunction}
+      header="Merch"
+    />
+  )
 }
 
 // please, don't `export default`! it messes up autocompletion,
