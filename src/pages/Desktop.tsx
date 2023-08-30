@@ -18,7 +18,7 @@ export default function Desktop() {
         <Icon icon={shirticon} name="Merch" openFunction={() => setShowWindow((prevState) => !prevState)} />
       </div>
       <DateTime />
-      <footer className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center text-lg text-zinc-500 blur-xxs">
+      <footer className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center text-lg text-zinc-500">
         ukashu 2023
       </footer>
     </>

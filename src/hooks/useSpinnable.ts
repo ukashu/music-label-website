@@ -55,7 +55,11 @@ export const useSpinnable = ({ onDrag = id } = {}): [
       } else if (timeStamp > videoDuration) {
         timeStamp = timeStamp - videoDuration
       }
-      elem.currentTime = timeStamp
+      if (currentTime !== timeStamp) {
+        //console.log({ currentTime, timeStamp })
+        //console.log("setting")
+        elem.currentTime = timeStamp
+      }
     }
     const handleMouseUp = (e: MouseEvent & { target: HTMLElement }) => {
       e.target.style.userSelect = "auto"
