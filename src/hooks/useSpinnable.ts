@@ -18,6 +18,7 @@ export const useSpinnable = ({ onDrag = id } = {}): [
     }
 
     e.target.style.userSelect = "none"
+    ref.current?.pause()
     setPressed(true)
   }, [])
 
@@ -40,13 +41,13 @@ export const useSpinnable = ({ onDrag = id } = {}): [
       const currentTime = elem.currentTime
       const windowWidth = window.innerWidth
       const proportions = Math.floor((event.clientX / windowWidth) * 100) / 100
-      const timeStamp = Math.round(proportions * videoDuration * 100) / 100
-      console.log({ proportions, timeStamp })
+      const timeStamp = Math.round(proportions * videoDuration * 10) / 10
+      //console.log({ proportions, timeStamp })
       elem.currentTime = timeStamp
-      //elem.style.transform = `translate(${pos.x}px, px)`;
     }
     const handleMouseUp = (e: MouseEvent & { target: HTMLElement }) => {
       e.target.style.userSelect = "auto"
+      ref.current?.play()
       setPressed(false)
     }
 
