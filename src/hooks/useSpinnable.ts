@@ -27,27 +27,40 @@ export const useSpinnable = ({ onDrag = id } = {}): [
       return
     }
 
+    let startingPosition = 0
+
     const handleMouseMove = (event: MouseEvent) => {
       if (!ref.current || !position.current) {
         return
       }
+
       const pos = position.current
 
       const elem = ref.current as HTMLVideoElement
       position.current = onDrag({
         x: pos.x + event.movementX
       })
-      const videoDuration = elem.duration
-      const currentTime = elem.currentTime
+      const videoDuration = Math.round(elem.duration * 10) / 10
       const windowWidth = window.innerWidth
-      const proportions = Math.floor((event.clientX / windowWidth) * 100) / 100
-      const timeStamp = Math.round(proportions * videoDuration * 10) / 10
-      //console.log({ proportions, timeStamp })
+      const currentTime = Math.round(elem.currentTime * 10) / 10
+
+      if (startingPosition === 0) {
+        startingPosition = currentTime
+      }
+
+      const proportions = Math.floor((pos.x / windowWidth) * 100) / 100
+      let timeStamp = Math.round((startingPosition + proportions * videoDuration) * 10) / 10
+      if (timeStamp < 0) {
+        timeStamp = videoDuration + timeStamp
+      } else if (timeStamp > videoDuration) {
+        timeStamp = timeStamp - videoDuration
+      }
       elem.currentTime = timeStamp
     }
     const handleMouseUp = (e: MouseEvent & { target: HTMLElement }) => {
       e.target.style.userSelect = "auto"
       ref.current?.play()
+      position.current = { x: 0 }
       setPressed(false)
     }
 
