@@ -12,6 +12,7 @@ import './crt.css'
 			<source src={cubelogo} type='video/mp4' />
 		</video>
 		<section class="screen">
+			<div class="scanning"></div>
 			<Desktop client:only/>
 		</section>
 	</main>
@@ -46,14 +47,19 @@ import './crt.css'
 		float: left;
 		padding: none;
 		margin: auto auto;
-		position: fixed; /* optional depending on what you want to do in your app */
-	}
-	
-	.enableBlur>* {
-		filter: blur(1px);
+		position: fixed;
+		--tw-blur: blur(0.7px);
+ 	 filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 	}
 
-	.disableBlur {
-		filter: blur(0);
+	.scanning {
+		content: '';
+		position: absolute;
+		width: 100vw;
+		height: 50vh;
+		bottom: 0;
+		background-image: linear-gradient(to bottom,
+			rgba(170, 184, 190, 0),
+			rgba(170, 184, 190, .2));
 	}
 </style>
