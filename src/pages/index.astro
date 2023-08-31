@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Desktop from './Desktop';
-import cubelogo from '../videos/cubelogo.mp4';
+import cubelogo from '../videos/cubelogo.webm';
 import './crt.css'
 ---
 
@@ -9,7 +9,7 @@ import './crt.css'
 	<main class="page">
 		<div class="crt"></div>
 		<video id='background-video' autoplay loop muted>
-			<source src={cubelogo} type='video/mp4' />
+			<source src={cubelogo} type='video/webm' />
 		</video>
 		<section class="screen">
 			<div class="scanning"></div>

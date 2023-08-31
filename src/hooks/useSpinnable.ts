@@ -27,7 +27,10 @@ export const useSpinnable = ({ onDrag = id } = {}): [
       return
     }
 
+    const elem = ref.current as HTMLVideoElement
     let startingPosition = 0
+    const windowWidth = window.innerWidth
+    const videoDuration = Math.round(elem.duration * 10) / 10
 
     const handleMouseMove = (event: MouseEvent) => {
       if (!ref.current || !position.current) {
@@ -36,12 +39,10 @@ export const useSpinnable = ({ onDrag = id } = {}): [
 
       const pos = position.current
 
-      const elem = ref.current as HTMLVideoElement
       position.current = onDrag({
         x: pos.x + event.movementX
       })
-      const videoDuration = Math.round(elem.duration * 10) / 10
-      const windowWidth = window.innerWidth
+
       const currentTime = Math.round(elem.currentTime * 10) / 10
 
       if (startingPosition === 0) {
@@ -55,7 +56,7 @@ export const useSpinnable = ({ onDrag = id } = {}): [
       } else if (timeStamp > videoDuration) {
         timeStamp = timeStamp - videoDuration
       }
-      if (currentTime !== timeStamp) {
+      if (currentTime !== timeStamp && timeStamp >= 0) {
         //console.log({ currentTime, timeStamp })
         //console.log("setting")
         elem.currentTime = timeStamp

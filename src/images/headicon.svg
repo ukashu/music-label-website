@@ -1,14 +1,6 @@
-<svg viewBox="0 0 39 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_f_32_181)">
-<circle cx="19.5" cy="21.5" r="12.5" fill="white"/>
-<rect x="1" y="16" width="5" height="10" fill="white"/>
-<rect x="33" y="16" width="5" height="10" fill="white"/>
-<path d="M3 14.5C8 -2 31 -2 36 14.5" stroke="white"/>
-</g>
-<defs>
-<filter id="filter0_f_32_181" x="0" y="0.625" width="39" height="34.375" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-</filter>
-</defs>
+<svg viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="18.8378" cy="25.4626" r="12.3378" stroke="white"/>
+<rect x="0.5" y="19.1248" width="4.13513" height="9.27027" stroke="white"/>
+<rect x="33.5" y="19.1248" width="4.13513" height="9.27027" stroke="white"/>
+<path d="M2.5 17.1246C2.5 -4.37489 35.5 -4.37476 35.5 17.1246" stroke="white"/>
 </svg>
