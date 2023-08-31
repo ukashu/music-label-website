@@ -2,11 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Desktop from './Desktop';
 import cubelogo from '../videos/cubelogo.webm';
+import Loader from '../components/Loader.astro'
 import './crt.css'
 ---
 
 <Layout title="NIGHTMODE">
 	<main class="page">
+		<Loader/>
 		<div class="crt"></div>
 		<video id='background-video' autoplay loop muted>
 			<source src={cubelogo} type='video/webm' />
@@ -19,11 +21,19 @@ import './crt.css'
 </Layout>
 
 <style>
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
 	.page {
 		margin: 0;
 		padding: 0;
 		width: 100vw;
-		max-width: calc(100% - 2rem);
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
@@ -49,7 +59,7 @@ import './crt.css'
 		margin: auto auto;
 		position: fixed;
 		--tw-blur: blur(0.7px);
- 	 filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+ 	 	filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 	}
 
 	.scanning {
@@ -59,7 +69,8 @@ import './crt.css'
 		height: 50vh;
 		bottom: 0;
 		background-image: linear-gradient(to bottom,
-			rgba(170, 184, 190, 0),
-			rgba(170, 184, 190, .2));
+		rgba(170, 184, 190, 0),
+		rgba(170, 184, 190, .2));
+		z-index: 9999;
 	}
 </style>

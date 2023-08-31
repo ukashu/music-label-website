@@ -1,0 +1,133 @@
+---
+---
+<div class="loader">
+  <div class="terminal">
+    <p class="terminal-text delay1">Welcome back. System(32) launch.sequence initiated</p>
+    <p class="terminal-text delay2">/data-setup:music-label-website</p>
+    <p class="terminal-text delay3">Showcase will begin shortly. LOADING...</p>
+    <p class="terminal-text delay-final"></p>
+  </div>
+</div>
+<script>
+	function sleep(ms: number) {
+		return new Promise(resolve => setTimeout(resolve, ms));
+	}
+
+	function waitForElm(selector: string): Promise<Element | null> {
+    return new Promise(resolve => {
+			if (document.querySelector(selector)) {
+					return resolve(document.querySelector(selector));
+			}
+
+			const observer = new MutationObserver(mutations => {
+				if (document.querySelector(selector)) {
+						observer.disconnect();
+						resolve(document.querySelector(selector));
+				}
+		});
+
+			observer.observe(document.body, {
+					childList: true,
+					subtree: true
+			});
+		});
+	}
+	await sleep(6000)
+	waitForElm('#icons').then((elm: Element | null) => {
+		if (!elm) {return}
+    console.log('Element is ready');
+		const loader: HTMLDivElement | null = document.querySelector(".loader")
+		if (!loader) {return}
+		loader.classList.add('hide_loader');
+	});
+</script>
+<style>
+  .terminal-text {
+    display: block;
+    width: 0px;
+    margin: 0;
+    padding: 0;
+    font-size:2rem;
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    animation-name: writeText;
+    animation-duration: 4000ms;
+    animation-fill-mode: forwards;
+    filter: blur(0.7px)
+  }
+
+  .delay1 {
+    animation-delay: 1000ms;
+  }
+  .delay2{
+    animation-delay: 2200ms;
+  }
+  .delay3{
+    animation-delay: 3100ms;
+  }
+
+  /* Standard syntax */
+  @keyframes writeText {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100vw;
+    }
+  }
+
+  .delay3::after {
+    content: "▍";
+    animation-name: blinking;
+    animation-duration: 1000ms;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes blinking {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes hideAnim {
+    to {
+      display: none;
+    }
+  }
+
+  .loader {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 20;
+  }
+
+  .hide_loader {
+    animation: 500ms fadeOut forwards, 0ms 500ms hideAnim forwards;
+  }
+
+  .terminal {
+    /* position: absolute;
+    left: calc(50% - 35px);
+    top: calc(50% - 35px); */
+    /* animation-name: fadeOut;
+    animation-duration: 1ms;
+    animation-fill-mode: forwards;
+    animation-delay: 10000ms; */
+  }
+</style>
