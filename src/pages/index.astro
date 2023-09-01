@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Desktop from './Desktop';
 import cubelogo from '../videos/cubelogo.webm';
+import lfpattern from '../images/lfpattern.png'
 import Loader from '../components/Loader.astro'
 import './tilt.css'
 import './crt.css' 
@@ -11,6 +12,7 @@ import './crt.css'
 	<main class="page">
 		<!-- <Loader/> -->
 		<div class="crt"></div>
+		<div id="lfpattern" class="absolute"></div>
 		<video id='background-video' autoplay loop muted>
 			<source src={cubelogo} type='video/webm' />
 		</video>
@@ -50,6 +52,7 @@ import './crt.css'
 		background-repeat: no-repeat;
 		background-attachment: fixed;
   	background-position: center; */
+		transform: perspective(100vw)rotateX(6deg)rotateY(0)rotateZ(0)perspective(100vw);
 	}
 
 	#background-video {
@@ -61,6 +64,14 @@ import './crt.css'
 		position: fixed;
 		--tw-blur: blur(0.7px);
  	 	filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+	}
+
+	#lfpattern {
+		width: 100vw;
+		height: 20vh;
+		margin-top: 15vh;
+		background: url('../images/lfpattern.png') repeat-x;
+		opacity: 0.05;
 	}
 
 	.scanning {
