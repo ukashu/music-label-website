@@ -13,6 +13,7 @@
     "@astrojs/react": "^2.3.2",
     "@astrojs/tailwind": "^4.0.0",
     "@astrojs/vercel": "3.8.2",
+    "@fontsource/libre-barcode-128": "^5.0.11",
     "@fontsource/vt323": "^5.0.8",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",

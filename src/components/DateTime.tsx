@@ -31,9 +31,5 @@ export default function DateTime() {
     return dateString
   }
 
-  return (
-    <div id="datetime" className=" absolute right-20 top-20 text-2xl blur-xxs">
-      <p>{date}</p>
-    </div>
-  )
+  return <p>{date}</p>
 }

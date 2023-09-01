@@ -7,11 +7,12 @@ import DateTime from "../components/DateTime.js"
 import React from "react"
 import MerchWindow from "../components/MerchWindow.js"
 import ArtistsWindow from "../components/ArtistsWindow.js"
+import BarcodeLogo from "../components/BarcodeLogo.js"
 
 export default function Desktop() {
   //combine states into one TODO
   const [showMerch, setShowMerch] = React.useState(false)
-  const [showArtists, setShowArtists] = React.useState(true)
+  const [showArtists, setShowArtists] = React.useState(false)
   const [showListen, setShowListen] = React.useState(false)
 
   return (
@@ -31,7 +32,11 @@ export default function Desktop() {
         <Icon icon={albumsicon} name="Artists" openFunction={() => setShowArtists((prevState) => !prevState)} />
         <Icon icon={shirticon} name="Merch" openFunction={() => setShowMerch((prevState) => !prevState)} />
       </div>
-      <DateTime />
+      <div id="datetime" className=" absolute right-20 top-20 text-2xl blur-xxs">
+        <BarcodeLogo />
+        <DateTime />
+      </div>
+
       <footer className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center text-lg text-zinc-500">
         ukashu 2023
       </footer>

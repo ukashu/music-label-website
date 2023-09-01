@@ -14,6 +14,9 @@ dependencies:
   '@astrojs/vercel':
     specifier: 3.8.2
     version: 3.8.2(astro@2.10.13)(react@18.2.0)
+  '@fontsource/libre-barcode-128':
+    specifier: ^5.0.11
+    version: 5.0.11
   '@fontsource/vt323':
     specifier: ^5.0.8
     version: 5.0.8
@@ -831,6 +834,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource/libre-barcode-128@5.0.11:
+    resolution: {integrity: sha512-wote4p4jo7+/SpU4rLao6fO44P8AJG9QHcHZL7ZyInGZkcDLYIbwFkc0x47l65Cag89Gc7RU3Z2fSwArZa0FAw==}
+    dev: false
 
   /@fontsource/vt323@5.0.8:
     resolution: {integrity: sha512-WU1qtqHObNqH2Tq6NmzwpO2Gyu3E4nqEOdrSMs0j9mwtRRSHf9FeM+iYVdbA1rhJDDZSw0ZSZakGAZxOJNTTdw==}
