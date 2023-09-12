@@ -41,7 +41,3 @@ export default function DraggableComponent(props: Props) {
     </>
   )
 }
-
-// please, don't `export default`! it messes up autocompletion,
-// usage search and regular text search in IDE!
-// export default DraggableComponent
