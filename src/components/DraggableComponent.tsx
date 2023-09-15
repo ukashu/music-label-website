@@ -1,11 +1,13 @@
 import React, { useCallback } from "react"
 import { useDraggable } from "../hooks/useDraggable.js"
 import ButtonDark from "./ButtonDark.js"
+import Icon from "./Icon.js"
 
 type Props = {
   closeFunction: () => void
   children: React.ReactElement<any>
   header: string
+  icon: string
 }
 
 export default function DraggableComponent(props: Props) {
@@ -32,6 +34,7 @@ export default function DraggableComponent(props: Props) {
           className="z-10 flex flex-row items-center justify-end gap-1 border-b-2 border-b-zinc-200 bg-black p-1 text-xl"
           id="windowHeader"
           onMouseDown={handleMouseDown}>
+          <img src={props.icon} alt={props.header} className="h-8" />
           <p className="mb-0 mr-auto mt-0 p-0 text-2xl leading-none">{props.header}</p>
           <ButtonDark icon="?" />
           <ButtonDark icon="x" closeFunction={props.closeFunction} />

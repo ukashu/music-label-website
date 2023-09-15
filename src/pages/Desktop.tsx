@@ -7,6 +7,7 @@ import DateTime from "../components/DateTime.js"
 import React from "react"
 import MerchWindow from "../components/MerchWindow.js"
 import ArtistsWindow from "../components/ArtistsWindow.js"
+import ListeningWindow from "../components/ListeningWindow.js"
 import BarcodeLogo from "../components/BarcodeLogo.js"
 
 export default function Desktop() {
@@ -18,17 +19,22 @@ export default function Desktop() {
   return (
     <>
       {showMerch && (
-        <DraggableComponent header="Merch" closeFunction={() => setShowMerch(false)}>
+        <DraggableComponent header="Merch" closeFunction={() => setShowMerch(false)} icon={shirticon}>
           <MerchWindow />
         </DraggableComponent>
       )}
       {showArtists && (
-        <DraggableComponent header="Artists" closeFunction={() => setShowArtists(false)}>
+        <DraggableComponent header="Artists" closeFunction={() => setShowArtists(false)} icon={albumsicon}>
           <ArtistsWindow />
         </DraggableComponent>
       )}
+      {showListen && (
+        <DraggableComponent header="Listen" closeFunction={() => setShowListen(false)} icon={headicon}>
+          <ListeningWindow />
+        </DraggableComponent>
+      )}
       <div id="icons" className=" flex flex-row gap-16 p-20 blur-xxs">
-        <Icon icon={headicon} name="Listen" />
+        <Icon icon={headicon} name="Listen" openFunction={() => setShowListen((prevState) => !prevState)} />
         <Icon icon={albumsicon} name="Artists" openFunction={() => setShowArtists((prevState) => !prevState)} />
         <Icon icon={shirticon} name="Merch" openFunction={() => setShowMerch((prevState) => !prevState)} />
       </div>
