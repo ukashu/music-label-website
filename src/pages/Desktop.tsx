@@ -13,7 +13,7 @@ import BarcodeLogo from "../components/BarcodeLogo.js"
 export default function Desktop() {
   //combine states into one TODO
   const [showMerch, setShowMerch] = React.useState(false)
-  const [showArtists, setShowArtists] = React.useState(false)
+  const [showArtists, setShowArtists] = React.useState(true)
   const [showListen, setShowListen] = React.useState(false)
 
   return (
@@ -29,7 +29,10 @@ export default function Desktop() {
         </DraggableComponent>
       )}
       {showListen && (
-        <DraggableComponent header="Listen" closeFunction={() => setShowListen(false)} icon={headicon}>
+        <DraggableComponent
+          header="Listen [LOUDNESS WARNING]"
+          closeFunction={() => setShowListen(false)}
+          icon={headicon}>
           <ListeningWindow />
         </DraggableComponent>
       )}

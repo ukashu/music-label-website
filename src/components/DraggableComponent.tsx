@@ -1,7 +1,6 @@
 import React, { useCallback } from "react"
 import { useDraggable } from "../hooks/useDraggable.js"
 import ButtonDark from "./ButtonDark.js"
-import Icon from "./Icon.js"
 
 type Props = {
   closeFunction: () => void
