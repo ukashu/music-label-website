@@ -7,6 +7,8 @@ type Props = {
   children: React.ReactElement<any>
   header: string
   icon: string
+  zIndex?: number
+  focus?: () => void
 }
 
 export default function DraggableComponent(props: Props) {
@@ -23,12 +25,12 @@ export default function DraggableComponent(props: Props) {
     onDrag: handleDrag
   })
 
+  console.log({ index: props.zIndex })
+  const classString = `absolute bottom-0 left-0 right-0 top-0 z-${props.zIndex} m-auto flex h-max w-max flex-col border-b-2 border-l-4 border-r-2 border-t-4 border-b-zinc-500 border-l-zinc-200 border-r-zinc-500 border-t-zinc-200 blur-xxs`
+
   return (
     <>
-      <div
-        className="absolute bottom-0 left-0 right-0 top-0 z-20 m-auto flex h-max w-max flex-col border-b-2 border-l-4 border-r-2 border-t-4 border-b-zinc-500 border-l-zinc-200 border-r-zinc-500 border-t-zinc-200 blur-xxs"
-        id="window"
-        ref={ref}>
+      <div className={classString} id="window" onMouseDown={props.focus} ref={ref}>
         <header
           className="z-10 flex flex-row items-center justify-end gap-1 border-b-2 border-b-zinc-200 bg-black p-1 text-xl"
           id="windowHeader"
