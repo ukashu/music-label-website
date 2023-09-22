@@ -11,18 +11,14 @@ import ArtistsWindow from "../components/ArtistsWindow.js"
 import ListeningWindow from "../components/ListeningWindow.js"
 import BarcodeLogo from "../components/BarcodeLogo.js"
 
+type windowStack = Array<"merch" | "artists" | "listen">
+
 export default function Desktop() {
   //combine states into one TODO
   const [showMerch, setShowMerch] = useState(false)
   const [showArtists, setShowArtists] = useState(false)
   const [showListen, setShowListen] = useState(false)
-  const [zIndex, setZIndex] = useState({
-    merch: 30,
-    artists: 30,
-    listen: 30
-  })
-
-  console.log({ zIndex })
+  const [windowStack, setWindowStack] = useState<windowStack>(["merch", "listen", "artists"])
 
   function openWindow(header: "merch" | "artists" | "listen") {
     switch (header) {
@@ -44,13 +40,15 @@ export default function Desktop() {
   }
 
   function focusWindow(header: "merch" | "artists" | "listen") {
-    let indexes = {
-      merch: 30,
-      artists: 30,
-      listen: 30
-    }
-    indexes[header] = 40
-    setZIndex(indexes)
+    setWindowStack((prevState) => {
+      let newState = [...prevState]
+      const index = newState.indexOf(header)
+      if (index > -1) {
+        newState.splice(index, 1)
+      }
+      newState.unshift(header)
+      return newState
+    })
   }
 
   return (
@@ -58,9 +56,10 @@ export default function Desktop() {
       {showMerch && (
         <DraggableComponent
           header="Merch"
+          name="merch"
           closeFunction={() => setShowMerch(false)}
           focus={() => focusWindow("merch")}
-          zIndex={zIndex.merch}
+          windowStack={windowStack}
           icon={shirticon}>
           <MerchWindow />
         </DraggableComponent>
@@ -68,9 +67,10 @@ export default function Desktop() {
       {showArtists && (
         <DraggableComponent
           header="Artists"
+          name="artists"
           closeFunction={() => setShowArtists(false)}
           focus={() => focusWindow("artists")}
-          zIndex={zIndex.artists}
+          windowStack={windowStack}
           icon={albumsicon}>
           <ArtistsWindow />
         </DraggableComponent>
@@ -78,9 +78,10 @@ export default function Desktop() {
       {showListen && (
         <DraggableComponent
           header="Listen [LOUDNESS WARNING]"
+          name="listen"
           closeFunction={() => setShowListen(false)}
           focus={() => focusWindow("listen")}
-          zIndex={zIndex.listen}
+          windowStack={windowStack}
           icon={headicon}>
           <ListeningWindow />
         </DraggableComponent>

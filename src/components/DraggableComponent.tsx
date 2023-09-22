@@ -7,7 +7,8 @@ type Props = {
   children: React.ReactElement<any>
   header: string
   icon: string
-  zIndex?: number
+  name: "merch" | "artists" | "listen"
+  windowStack: Array<"merch" | "artists" | "listen">
   focus?: () => void
 }
 
@@ -25,8 +26,24 @@ export default function DraggableComponent(props: Props) {
     onDrag: handleDrag
   })
 
-  console.log({ index: props.zIndex })
-  const classString = `absolute bottom-0 left-0 right-0 top-0 z-${props.zIndex} m-auto flex h-max w-max flex-col border-b-2 border-l-4 border-r-2 border-t-4 border-b-zinc-500 border-l-zinc-200 border-r-zinc-500 border-t-zinc-200 blur-xxs`
+  function getZIndex(windowStack: Array<"merch" | "artists" | "listen">, name: "merch" | "artists" | "listen") {
+    const index = windowStack.indexOf(name)
+    switch (index) {
+      case 0:
+        return "z-50"
+      case 1:
+        return "z-40"
+      case 2:
+        return "z-30"
+      default:
+        return "z-30"
+    }
+  }
+
+  const classString = `absolute bottom-0 left-0 right-0 top-0 ${getZIndex(
+    props.windowStack,
+    props.name
+  )} m-auto flex h-max w-max flex-col border-b-2 border-l-4 border-r-2 border-t-4 border-b-zinc-500 border-l-zinc-200 border-r-zinc-500 border-t-zinc-200 blur-xxs`
 
   return (
     <>
