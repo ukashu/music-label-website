@@ -5,22 +5,25 @@ const id = (x: any) => x
 export const useSpinnable = ({ onDrag = id } = {}): [
   RefObject<HTMLVideoElement>,
   boolean,
-  (e: React.MouseEvent<HTMLElement, MouseEvent> & { target: HTMLElement }) => void
+  (e: React.MouseEvent<HTMLDivElement, MouseEvent> & { target: HTMLDivElement }) => void
 ] => {
   const [pressed, setPressed] = useState(false)
 
   const position = useRef({ x: 0 })
   const ref = useRef<HTMLVideoElement>(null)
 
-  const handleMouseDown = useCallback((e: React.MouseEvent<HTMLElement, MouseEvent> & { target: HTMLElement }) => {
-    if (!e.target) {
-      return
-    }
+  const handleMouseDown = useCallback(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent> & { target: HTMLDivElement }) => {
+      if (!e.target) {
+        return
+      }
 
-    e.target.style.userSelect = "none"
-    ref.current?.pause()
-    setPressed(true)
-  }, [])
+      e.target.style.userSelect = "none"
+      ref.current?.pause()
+      setPressed(true)
+    },
+    []
+  )
 
   useEffect(() => {
     if (!pressed) {
