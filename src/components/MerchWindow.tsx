@@ -14,7 +14,7 @@ export default function MerchWindow() {
 
   return (
     <div className=" my-20 flex max-h-[100%] max-w-[1000px] items-center overflow-hidden">
-      <div onMouseDown={handleMouseDown} className="m-0 flex w-1/2 flex-col overflow-hidden">
+      <div onMouseDown={handleMouseDown} className="m-0 flex w-1/2 cursor-pointer flex-col overflow-hidden">
         <video ref={ref} autoPlay loop muted className=" min-h-[100%] overflow-hidden">
           <source src={shirtvid} type="video/mp4" />
         </video>
